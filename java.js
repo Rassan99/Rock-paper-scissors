@@ -28,6 +28,8 @@
     
 // }
 // button.addEventListener("click", myFunction);
+radio=document.getElementsByName('drone');
+
 function computer() {
     return Math.floor(Math.random() * (3 - 1 + 1)) + 1;
   }
@@ -40,7 +42,7 @@ function human(){
 function onClick() {
    label.textContent = 'Error: one or both inputs are empty.';
   }
-var label = document.querySelector('p');
-var button = document.querySelector('button');
-button.addEventListener('click', onClick);
+let label = document.querySelector('p');
+let button = document.querySelectorAll('.button');
+radio.addEventListener('click', onClick);
 
