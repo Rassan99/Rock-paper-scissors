@@ -44,10 +44,11 @@ function get_human_choice(human_choice) {
     return null;
   }
   return human_c;
-}
-function game(computer_c, human_c) {
-  let human_score=0;
-  let computer_score=0;
+}  
+let human_score=0;
+let computer_score=0;
+function Round(computer_c, human_c) {
+
   if (human_c === null) {
     return; // Exit if the human choice was invalid
   }
@@ -61,24 +62,43 @@ function game(computer_c, human_c) {
   // Win cases for the human
   } else if (computer_c === 1 && human_c === 2) {
     alert("Computer chose Rock and you chose Paper! You Win!");
+    human_score++;
   } else if (computer_c === 2 && human_c === 3) {
     alert("Computer chose Paper and you chose Scissors! You Win!");
+    human_score++;
   } else if (computer_c === 3 && human_c === 1) {
     alert("Computer chose Scissors and you chose Rock! You Win!");
+    human_score++;
   // Loss cases for the human
   } else if (computer_c === 1 && human_c === 3) {
     alert("Computer chose Rock and you chose Scissors! You Lose!");
+    computer_score++;
   } else if (computer_c === 2 && human_c === 1) {
     alert("Computer chose Paper and you chose Rock! You Lose!");
+    computer_score++;
   } else if (computer_c === 3 && human_c === 2) {
     alert("Computer chose Scissors and you chose Paper! You Lose!");
+    computer_score++;
   }
 }
+function game(){
+
 for (let i = 0; i < 5; i++) {
-let human_choice = prompt("What's your Choice?");
-let computer_c = computer(); 
-let human_c = get_human_choice(human_choice);
-game(computer_c, human_c);
+  let human_choice = prompt("What's your Choice?");
+  let computer_c = computer(); 
+  let human_c = get_human_choice(human_choice);
+  Round(computer_c, human_c);
+  }
+
 }
+game()
+if (human_score>computer_score){
+  alert(`Congrats You won ${human_score} Times And the computer Won ${computer_score}! You beat the computer`);
+}
+if (human_score<computer_score){
+  alert(`Unfortunately You won ${human_score} Times And the computer Won ${computer_score}! Computer beat You`);
+}
+
+
 
 
